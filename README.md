@@ -1,48 +1,27 @@
-# Apline JS Sticky
+# Alpine JS Slug
 
-Alpine JS plugin `x-sticky` allows you to toggle class names on elements when an element is stuck in the viewport 🕸
+Alpine JS plugin `x-slug` allows you to reactively convert a string to slug, perfect for blog titles
 
 ## Example 👀
 
 ```html
-<div class="h-[3000px] p-8 space-y-8" x-data>
-  <h1 class="text-3xl">👋</h1>
+<form x-data="{ title: '' }">
+  <label for="title">Title</label>
+  <input type="text" id="title" x-model="title" />
 
-  <div
-    class="flex justify-between bg-white p-4 border-2 border-blue-500 sticky top-0 sticky-root"
-    x-sticky="!border-red-500 !bg-red-50"
-  >
-    <p>🕸🕸🕸</p>
-
-    <p class="hidden" x-sticky.sticky-root="!block">🕸🕸</p>
-  </div>
-
-  <div class="py-32">
-    <p class="hidden" x-sticky.sticky-root="!block">🕸</p>
-  </div>
-</div>
+  <label for="slug">Slug</label>
+  <input type="text" id="slug" x-slug="title" />
+</form>
 ```
 
-`x-sticky="!border-red-500 !bg-red-50"`
+This will update the `slug` input reactively when the `title` input updates. Whatever is inputed in the `title` input will be converted into a slug.
 
-This will add `!border-red-500 !bg-red-50` to that element when it is stuck in the viewport.
+**Examples**
 
-`x-sticky.sticky-root="!block"`
-
-This will add `!block` to that element when the element with the class `sticky-root` is stuck in the viewport.
-
-_Class names must be lowercase_
-
-## Options
-
-There are two options you can pass.
-
-- `x-sticky-root` (`-1px 0px 0px 0px`)
-- `x-sticky-threshold` (`[1]`)
-
-99% of the time the defaults will be fine, however you may want to change this.
-
-[MDN IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+```
+"My Awesome Blog" => "my-awesome-blog"
+"Is React Better than Vue?" => "why-are-we-still-talking-about-this-in-2022"
+```
 
 ## Install 🌟
 
@@ -51,25 +30,25 @@ It's very easy to install Alpine JS plugins! 🙌
 ### CDN
 
 ```html
-<script src="https://unpkg.com/alpinejs-sticky@1.x.x/dist/sticky.min.js"></script>
+<script src="https://unpkg.com/alpinejs-slug@1.x.x/dist/slug.min.js"></script>
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 ```
 
 ### NPM/Yarn
 
 ```shell
-npm i -D alpinejs-sticky
+npm i -D alpinejs-slug
 
-yarn add -D alpinejs-sticky
+yarn add -D alpinejs-slug
 ```
 
 Then you can register the plugin.
 
 ```js
 import Alpine from "alpinejs";
-import sticky from "alpinejs-sticky";
+import slug from "alpinejs-slug";
 
-Alpine.plugin(sticky);
+Alpine.plugin(slug);
 
 window.Alpine = Alpine;
 
@@ -78,9 +57,9 @@ Alpine.start();
 
 ### Stats 📊
 
-Here's some stats about the Alpine JS Sticky package! As you can see, it's tiny 🤏
+Here's some stats about the Alpine JS slug package! As you can see, it's tiny 🤏
 
-![](https://img.shields.io/bundlephobia/min/alpinejs-sticky)
-![](https://img.shields.io/npm/v/alpinejs-sticky)
-![](https://img.shields.io/npm/dt/alpinejs-sticky)
-![](https://img.shields.io/github/license/markmead/alpinejs-sticky)
+![](https://img.shields.io/bundlephobia/min/alpinejs-slug)
+![](https://img.shields.io/npm/v/alpinejs-slug)
+![](https://img.shields.io/npm/dt/alpinejs-slug)
+![](https://img.shields.io/github/license/markmead/alpinejs-slug)
