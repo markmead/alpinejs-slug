@@ -1,20 +1,20 @@
 build({
   entryPoints: [`builds/cdn.js`],
-  outfile: `dist/sticky.min.js`,
+  outfile: `dist/slug.min.js`,
   platform: "browser",
   define: { CDN: true },
 });
 
 build({
   entryPoints: [`builds/module.js`],
-  outfile: `dist/sticky.esm.js`,
+  outfile: `dist/slug.esm.js`,
   platform: "neutral",
   mainFields: ["main", "module"],
 });
 
 build({
   entryPoints: [`builds/module.js`],
-  outfile: `dist/sticky.cjs.js`,
+  outfile: `dist/slug.cjs.js`,
   target: ["node10.4"],
   platform: "node",
 });
