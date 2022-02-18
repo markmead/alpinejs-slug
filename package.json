@@ -1,7 +1,7 @@
 {
   "name": "alpinejs-slug",
   "version": "1.0.0",
-  "description": "Reactively convert a string to a slug",
+  "description": "Convert a string to a slug with Alpine JS x-slug directive",
   "keywords": [
     "Alpine",
     "Alpine JS",
