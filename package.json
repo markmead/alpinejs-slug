@@ -1,20 +1,20 @@
 {
-  "name": "alpinejs-sticky",
-  "version": "1.1.0",
-  "description": "Add classes when an element is stuck in the viewport",
+  "name": "alpinejs-slug",
+  "version": "1.0.0",
+  "description": "Reactively convert a string to a slug",
   "keywords": [
     "Alpine",
     "Alpine JS",
-    "Alpine JS Plugins",
-    "Alpine JS Stuck",
-    "Alpine JS Sticky",
-    "Sticky"
+    "Alpine JS Slug",
+    "Alpine JS Slugify",
+    "String to Slug",
+    "Slugify"
   ],
   "author": "Mark Mead",
   "license": "MIT",
-  "main": "dist/sticky.cjs.js",
-  "module": "dist/sticky.esm.js",
-  "unpkg": "dist/sticky.min.js",
+  "main": "dist/slug.cjs.js",
+  "module": "dist/slug.esm.js",
+  "unpkg": "dist/slug.min.js",
   "scripts": {
     "build": "node scripts/build.js"
   },
