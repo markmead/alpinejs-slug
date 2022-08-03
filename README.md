@@ -1,40 +1,21 @@
 # Alpine JS Slug
 
-Alpine JS plugin `x-slug` allows you to reactively convert a string to slug, perfect for blog titles
+Transform a string into a slug with Alpine JS and Slugify 🐌
 
-## Example 👀
+## Install
 
-```html
-<form x-data="{ title: '' }">
-  <label for="title">Title</label>
-  <input type="text" id="title" x-model="title" />
-
-  <label for="slug">Slug</label>
-  <input type="text" id="slug" x-slug="title" />
-</form>
-```
-
-This will update the `slug` input reactively when the `title` input updates. Whatever is inputed in the `title` input will be converted into a slug.
-
-**Examples**
-
-```
-"My Awesome Blog" => "my-awesome-blog"
-"Is React Better than Vue?" => "why-are-we-still-talking-about-this-in-2022"
-```
-
-## Install 🌟
-
-It's very easy to install Alpine JS plugins! 🙌
-
-### CDN
+### With a CDN
 
 ```html
-<script src="https://unpkg.com/alpinejs-slug@1.x.x/dist/slug.min.js"></script>
+<script
+  defer
+  src="https://unpkg.com/alpinejs-slug@latest/dist/slug.min.js"
+></script>
+
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 ```
 
-### NPM/Yarn
+### With a Package Manager
 
 ```shell
 npm i -D alpinejs-slug
@@ -42,22 +23,36 @@ npm i -D alpinejs-slug
 yarn add -D alpinejs-slug
 ```
 
-Then you can register the plugin.
-
 ```js
-import Alpine from "alpinejs";
-import slug from "alpinejs-slug";
+import Alpine from 'alpinejs'
+import slug from 'alpinejs-slug'
 
-Alpine.plugin(slug);
+Alpine.plugin(slug)
 
-window.Alpine = Alpine;
-
-Alpine.start();
+Alpine.start()
 ```
 
-### Stats 📊
+## Example
 
-Here's some stats about the Alpine JS slug package! As you can see, it's tiny 🤏
+```html
+<form x-data="{ title: '' }">
+  <label for="title">Title</label>
+
+  <input type="text" id="title" x-model="title" />
+
+  <label for="slug">Slug</label>
+
+  <input type="text" id="slug" x-slug="title" />
+</form>
+```
+
+In this example the `x-slug` directive is doing the following.
+
+1. Watching the `title` data
+2. Converting the value of `title` to a slug
+3. Setting the value of the input (with the `x-slug` directive) to the slug
+
+### Stats
 
 ![](https://img.shields.io/bundlephobia/min/alpinejs-slug)
 ![](https://img.shields.io/npm/v/alpinejs-slug)

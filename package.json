@@ -1,10 +1,12 @@
 {
   "name": "alpinejs-slug",
-  "version": "1.0.0",
-  "description": "Convert a string to a slug with Alpine JS x-slug directive",
+  "version": "1.0.1",
+  "description": "Transform a string into a slug with Alpine JS and Slugify 🐌",
   "keywords": [
     "Alpine",
     "Alpine JS",
+    "Alpine JS Plugin",
+    "Alpine JS Plugins",
     "Alpine JS Slug",
     "Alpine JS Slugify",
     "String to Slug",
@@ -12,14 +14,13 @@
   ],
   "author": "Mark Mead",
   "license": "MIT",
-  "main": "dist/slug.cjs.js",
   "module": "dist/slug.esm.js",
   "unpkg": "dist/slug.min.js",
   "scripts": {
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "esbuild": "^0.12.22",
+    "esbuild": "^0.14.53",
     "slugify": "^1.6.5"
   }
 }
