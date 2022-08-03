@@ -1,6 +1,6 @@
 # Alpine JS Slug
 
-Transform a string to a slug 🐌
+Transform a string into a slug with Alpine JS and Slugify 🐌
 
 ## Install
 
