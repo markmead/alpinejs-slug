@@ -1,5 +1,3 @@
 import slug from '../src/index.js'
 
-document.addEventListener('alpine:init', () => {
-  window.Alpine.plugin(slug)
-})
+document.addEventListener('alpine:init', () => window.Alpine.plugin(slug))
