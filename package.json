@@ -1,16 +1,16 @@
 {
   "name": "alpinejs-slug",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Transform a string into a slug with Alpine JS and Slugify 🐌",
   "keywords": [
-    "Alpine",
-    "Alpine JS",
     "Alpine JS Plugin",
     "Alpine JS Plugins",
     "Alpine JS Slug",
     "Alpine JS Slugify",
-    "String to Slug",
-    "Slugify"
+    "Alpine JS",
+    "Alpine",
+    "Slugify",
+    "String to Slug"
   ],
   "module": "dist/slug.esm.js",
   "unpkg": "dist/slug.min.js",
@@ -18,7 +18,7 @@
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "esbuild": "^0.16.2",
+    "esbuild": "^0.17.11",
     "slugify": "^1.6.5"
   }
 }

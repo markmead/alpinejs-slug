@@ -2,13 +2,16 @@ import slugify from 'slugify'
 
 export default function (Alpine) {
   Alpine.directive('slug', (el, { expression }, { evaluateLater, effect }) => {
-    let setInputValue = evaluateLater(expression)
+    const setValue = evaluateLater(expression)
+    const isInput = el.tagName === 'INPUT'
 
     effect(() => {
-      setInputValue((string) => {
-        el.value = slugify(string, {
+      setValue((passedString) => {
+        const stringSlug = slugify(passedString, {
           lower: true,
         })
+
+        isInput ? (el.value = stringSlug) : (el.innerText = stringSlug)
       })
     })
   })
