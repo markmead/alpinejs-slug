@@ -1,6 +1,7 @@
 # Alpine JS Slug
 
-Transform a string into a slug with Alpine JS and Slugify 🐌
+Transform a string into a slug with Alpine JS and
+[Slugify](https://www.npmjs.com/package/slugify) 🐌
 
 ## Install
 
@@ -35,22 +36,61 @@ Alpine.start()
 ## Example
 
 ```html
-<form x-data="{ title: '' }">
-  <label for="title">Title</label>
+<div x-data="{ articleTitle: ' Alpine JS! ♥ ' }">
+  <input type="text" id="articleTitle" x-model="articleTitle" />
 
-  <input type="text" id="title" x-model="title" />
+  <input type="text" id="articleSlug" x-slug="articleTitle" />
+  <!-- This results in "alpine-js-love" -->
 
-  <label for="slug">Slug</label>
+  <p x-slug.keep-case.not-strict.replacement.&="articleTitle"></p>
+  <!-- This results in "Alpine&JS!&love" -->
 
-  <input type="text" id="slug" x-slug="title" />
-</form>
+  <p x-slug.untrimmed="articleTitle"></p>
+  <!-- This results in "-alpine-js-love-" -->
+
+  <p x-slug.locale.de="articleTitle"></p>
+  <!-- This results in "alpine-js-liebe" -->
+</div>
 ```
 
-In this example the `x-slug` directive is doing the following.
+### Modifiers
 
-1. Watching the `title` data
-2. Converting the value of `title` to a slug
-3. Setting the value of the input (with the `x-slug` directive) to the slug
+#### `keep-case`
+
+Default: `false`
+
+| Modifier  | Value       | False       | True        |
+| --------- | ----------- | ----------- | ----------- |
+| keep-case | Hello World | hello-world | Hello-World |
+
+#### `replacement`
+
+Default: `-`
+
+If you wanted to use an underscore you'd do so like this `replacement._`
+
+#### `not-strict`
+
+Default: `false`
+
+| Modifier   | Value        | False       | True         |
+| ---------- | ------------ | ----------- | ------------ |
+| not-strict | Hello World! | hello-world | hello-world! |
+
+#### `untrimmed`
+
+Default: `false`
+
+If this modifier is added and the string contains spaces, the spaces will be
+replaced with the value of `replacement`.
+
+#### `locale`
+
+Default: `{}`
+
+Set the locale to change how certain characters are transformed. You can see the
+list on the
+[Slugify repo](https://github.com/simov/slugify/blob/master/config/locales.json).
 
 ### Stats
 
