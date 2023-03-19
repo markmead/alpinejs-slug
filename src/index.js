@@ -1,15 +1,40 @@
 import slugify from 'slugify'
 
 export default function (Alpine) {
-  Alpine.directive('slug', (el, { expression }, { evaluateLater, effect }) => {
-    let setInputValue = evaluateLater(expression)
+  Alpine.directive(
+    'slug',
+    (el, { modifiers, expression }, { evaluateLater, effect }) => {
+      const setValue = evaluateLater(expression)
 
-    effect(() => {
-      setInputValue((string) => {
-        el.value = slugify(string, {
-          lower: true,
+      const isInput = el.tagName === 'INPUT'
+
+      const replacementMod = modifiers.includes('replacement')
+        ? modifiers[modifiers.indexOf('replacement') + 1]
+        : '-'
+
+      const localeMod = modifiers.includes('locale')
+        ? modifiers[modifiers.indexOf('locale') + 1]
+        : {}
+
+      const isLowercase = !modifiers.includes('keep-case')
+      const isStrict = !modifiers.includes('not-strict')
+      const isTrimmed = !modifiers.includes('untrimmed')
+
+      const slugOptions = {
+        lower: isLowercase,
+        replacement: replacementMod,
+        strict: isStrict,
+        trim: isTrimmed,
+        locale: localeMod,
+      }
+
+      effect(() => {
+        setValue((passedString) => {
+          const stringSlug = slugify(passedString, slugOptions)
+
+          isInput ? (el.value = stringSlug) : (el.innerText = stringSlug)
         })
       })
-    })
-  })
+    }
+  )
 }
