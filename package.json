@@ -12,6 +12,9 @@
     "Slugify",
     "String to Slug"
   ],
+  "author": "Mark Mead",
+  "license": "MIT",
+  "repository": "https://github.com/markmead/alpinejs-slug.git",
   "module": "dist/slug.esm.js",
   "unpkg": "dist/slug.min.js",
   "scripts": {
