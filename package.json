@@ -1,6 +1,6 @@
 {
   "name": "alpinejs-slug",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Transform a string into a slug with Alpine JS and Slugify 🐌",
   "keywords": [
     "Alpine JS Plugin",
