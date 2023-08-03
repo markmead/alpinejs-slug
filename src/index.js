@@ -3,7 +3,7 @@ import slugify from 'slugify'
 export default function (Alpine) {
   Alpine.directive(
     'slug',
-    (el, { modifiers, expression }, { evaluateLater, effect, Alpine }) => {
+    (el, { modifiers, expression }, { evaluateLater, effect }) => {
       const setValue = evaluateLater(expression)
 
       const isInput = el.tagName === 'INPUT'
