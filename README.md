@@ -92,6 +92,11 @@ Set the locale to change how certain characters are transformed. You can see the
 list on the
 [Slugify repo](https://github.com/simov/slugify/blob/master/config/locales.json).
 
+#### `lazy`
+
+Prevents the `x-slug` input value changing on load. It will only change when the
+input `x-slug` is targeting changes.
+
 ### Stats
 
 ![](https://img.shields.io/bundlephobia/min/alpinejs-slug)
